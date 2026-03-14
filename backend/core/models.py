@@ -113,6 +113,7 @@ class Permission(models.Model):
         ('library', 'Library'),
         ('exam', 'Exam'),
         ('members', 'Members'),
+        ('schedule', 'Schedule'),
 
         # ('vendors', 'Vendors'),
         # ("employees", "Employees"),

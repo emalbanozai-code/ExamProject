@@ -1,0 +1,15 @@
+this is my project Gym MIS backend and frontend.
+I want to make it in react ts + tailwind v4 + django drf.
+well structured and modular.
+in frontend each module should have services(api calls),hooks, stores, schemas, components, queries, pages and types folders.
+each code should be in the appropriate folder.
+now I want you to plan the Schedule module.
+features:
+1.	Create class model
+2.	Assign trainer
+3.	Add day & time
+4.	Weekly schedule view
+5.	Edit schedule
+6.  delete schedule
+
+ask me if anything is missing and you want to add it.

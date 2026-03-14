@@ -23,6 +23,20 @@ import {
   StaffListPage,
   StaffProfilePage,
 } from "@/modules/staff";
+import {
+  AddEquipmentPage,
+  EditEquipmentPage,
+  EquipmentHistoryPage,
+  EquipmentProfilePage,
+  InventoryListPage,
+} from "@/modules/inventory";
+import {
+  AddScheduleSlotPage,
+  EditScheduleSlotPage,
+  ScheduleClassesPage,
+  ScheduleWeeklyPage,
+} from "@/modules/schedule";
+import { PaymentsPage } from "@/modules/payments";
 
 function AppRouterProvider() {
   const router = createBrowserRouter([
@@ -57,6 +71,22 @@ function AppRouterProvider() {
         { path: "staff/new", element: <AddStaffPage /> },
         { path: "staff/:id", element: <StaffProfilePage /> },
         { path: "staff/:id/edit", element: <EditStaffPage /> },
+
+        // Inventory
+        { path: "inventory", element: <InventoryListPage /> },
+        { path: "inventory/new", element: <AddEquipmentPage /> },
+        { path: "inventory/:id", element: <EquipmentProfilePage /> },
+        { path: "inventory/:id/edit", element: <EditEquipmentPage /> },
+        { path: "inventory/:id/history", element: <EquipmentHistoryPage /> },
+
+        // Schedule
+        { path: "schedule", element: <ScheduleWeeklyPage /> },
+        { path: "schedule/classes", element: <ScheduleClassesPage /> },
+        { path: "schedule/new", element: <AddScheduleSlotPage /> },
+        { path: "schedule/:id/edit", element: <EditScheduleSlotPage /> },
+
+        // Payments
+        { path: "payments", element: <PaymentsPage /> },
       ],
     },
 

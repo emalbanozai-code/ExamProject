@@ -48,6 +48,10 @@ INSTALLED_APPS = [
     'accounts',
     'members',
     'staff',
+    'trainers',
+    'inventory',
+    'schedule',
+    'payments',
 ]
 
 MIDDLEWARE = [

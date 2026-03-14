@@ -1,0 +1,14 @@
+this is my project Gym MIS backend and frontend.
+I want to make it in react ts + tailwind v4 + django drf.
+well structured and modular.
+in frontend each module should have services(api calls),hooks, stores, schemas, components, queries, pages and types folders.
+each code should be in the appropriate folder.
+now I want you to plan the inventory module.
+ features:
+1.	Add equipment
+2.	Edit equipment
+3.	Quantity tracking
+4.	Machine status
+5.  delete equipment
+6.  Equipments History
+add another important features.
