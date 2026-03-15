@@ -1,0 +1,24 @@
+
+This is Online Exam system,i want to create a new module called "Employees/Management" with Django DRF + react ts 
++ tailwind v4, i want to you create this module in backend and frontend 
+in frontend each module should have services (api calls),hooks, stores, schemas, components, queries, pages and types folders.
+this module should has these attributes:  
+• First Name  
+• Last Name  
+• Father Name  
+• Date of Birth 
+• Address 
+• Phone Number 
+• Email (Unique) 
+• Role (Admin / Instructor / Staff)  
+• Salary 
+• Work Days 
+• Join Date  
+• Status (Active / Inactive)  
+• Username (Unique)  
+• Password (Hashed)  
+• Created At 
+• Updated At
+
+all functionalities of Employees/Management.
+ask me anything you want

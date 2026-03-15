@@ -7,7 +7,6 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ("core", "0003_add_trainers_module_choice"),
-        ("staff", "0003_migrate_trainers_to_staff"),
     ]
 
     operations = [
@@ -46,4 +45,3 @@ class Migration(migrations.Migration):
             ),
         ),
     ]
-

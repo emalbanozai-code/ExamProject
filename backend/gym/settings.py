@@ -46,12 +46,6 @@ INSTALLED_APPS = [
     'django_filters',
     'core',
     'accounts',
-    'members',
-    'staff',
-    'trainers',
-    'inventory',
-    'schedule',
-    'payments',
 ]
 
 MIDDLEWARE = [

@@ -10,33 +10,6 @@ import NotFoundPage from "@/pages/PageNotFounded";
 import { MISLayout } from "@/components";
 import { Dashboard } from "@/modules/dashboard";
 import { GeneralSettings, SettingsOverview, UserManagement } from "@settings/index";
-import { UserProfile } from "@/modules/profile";
-import {
-  AddMemberPage,
-  EditMemberPage,
-  MemberProfilePage,
-  MembersListPage,
-} from "@/modules/members";
-import {
-  AddStaffPage,
-  EditStaffPage,
-  StaffListPage,
-  StaffProfilePage,
-} from "@/modules/staff";
-import {
-  AddEquipmentPage,
-  EditEquipmentPage,
-  EquipmentHistoryPage,
-  EquipmentProfilePage,
-  InventoryListPage,
-} from "@/modules/inventory";
-import {
-  AddScheduleSlotPage,
-  EditScheduleSlotPage,
-  ScheduleClassesPage,
-  ScheduleWeeklyPage,
-} from "@/modules/schedule";
-import { PaymentsPage } from "@/modules/payments";
 
 function AppRouterProvider() {
   const router = createBrowserRouter([
@@ -56,37 +29,6 @@ function AppRouterProvider() {
         { path: "settings", element: <SettingsOverview /> },
         { path: "settings/general", element: <GeneralSettings /> },
         { path: "settings/users", element: <UserManagement /> },
-
-        // Profile
-        { path: "profile", element: <UserProfile /> },
-
-        // Members
-        { path: "members", element: <MembersListPage /> },
-        { path: "members/new", element: <AddMemberPage /> },
-        { path: "members/:id", element: <MemberProfilePage /> },
-        { path: "members/:id/edit", element: <EditMemberPage /> },
-
-        // Staff
-        { path: "staff", element: <StaffListPage /> },
-        { path: "staff/new", element: <AddStaffPage /> },
-        { path: "staff/:id", element: <StaffProfilePage /> },
-        { path: "staff/:id/edit", element: <EditStaffPage /> },
-
-        // Inventory
-        { path: "inventory", element: <InventoryListPage /> },
-        { path: "inventory/new", element: <AddEquipmentPage /> },
-        { path: "inventory/:id", element: <EquipmentProfilePage /> },
-        { path: "inventory/:id/edit", element: <EditEquipmentPage /> },
-        { path: "inventory/:id/history", element: <EquipmentHistoryPage /> },
-
-        // Schedule
-        { path: "schedule", element: <ScheduleWeeklyPage /> },
-        { path: "schedule/classes", element: <ScheduleClassesPage /> },
-        { path: "schedule/new", element: <AddScheduleSlotPage /> },
-        { path: "schedule/:id/edit", element: <EditScheduleSlotPage /> },
-
-        // Payments
-        { path: "payments", element: <PaymentsPage /> },
       ],
     },
 

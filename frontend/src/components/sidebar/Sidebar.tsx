@@ -1,16 +1,10 @@
 import { useTranslation } from "react-i18next";
 import {
   LayoutDashboard,
-  Users,
-  UserCog,
   Settings,
   LogOut,
-  User,
   Dumbbell,
   School,
-  Package,
-  CalendarDays,
-  Wallet,
 } from "lucide-react";
 import SidebarItem from "./SidebarItem";
 import SidebarToggle from "./SidebarToggle";
@@ -32,41 +26,6 @@ export default function Sidebar() {
       path: "/",
       label: "Dashboard",
       icon: LayoutDashboard,
-    },
-    {
-      path: "/members",
-      label: "Members",
-      icon: Users,
-      badge: undefined,
-    },
-    {
-      path: "/staff",
-      label: "Staff",
-      icon: UserCog,
-      badge: undefined,
-    },
-    {
-      path: "/inventory",
-      label: "Inventory",
-      icon: Package,
-      badge: undefined,
-    },
-    {
-      path: "/schedule",
-      label: "Schedule",
-      icon: CalendarDays,
-      badge: undefined,
-    },
-    {
-      path: "/payments",
-      label: "Payments",
-      icon: Wallet,
-      badge: undefined,
-    },
-    {
-      path: "/profile",
-      label: "Profile",
-      icon: User,
     },
     {
       path: "/settings",

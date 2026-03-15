@@ -4,7 +4,6 @@ import { useNavigate, Link } from "react-router-dom";
 import {
   Bell,
   Search,
-  User,
   Settings,
   LogOut,
   ChevronDown,
@@ -240,15 +239,7 @@ export default function MISHeader() {
               </div>
               <div className="py-1">
                 <Link
-                  to="/mis/profile"
-                  className="flex w-full items-center gap-3 px-4 py-2 text-sm text-text-primary transition-colors hover:bg-surface-hover"
-                  onClick={() => setShowProfileMenu(false)}
-                >
-                  <User className="h-4 w-4" />
-                  {t("auth.profile", "Profile")}
-                </Link>
-                <Link
-                  to="/mis/settings"
+                  to="/settings"
                   className="flex w-full items-center gap-3 px-4 py-2 text-sm text-text-primary transition-colors hover:bg-surface-hover"
                   onClick={() => setShowProfileMenu(false)}
                 >
