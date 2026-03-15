@@ -10,6 +10,12 @@ import NotFoundPage from "@/pages/PageNotFounded";
 import { MISLayout } from "@/components";
 import { Dashboard } from "@/modules/dashboard";
 import { GeneralSettings, SettingsOverview, UserManagement } from "@settings/index";
+import {
+  AddEmployeePage,
+  EditEmployeePage,
+  EmployeeProfilePage,
+  EmployeesListPage,
+} from "@/modules/employees";
 
 function AppRouterProvider() {
   const router = createBrowserRouter([
@@ -29,6 +35,12 @@ function AppRouterProvider() {
         { path: "settings", element: <SettingsOverview /> },
         { path: "settings/general", element: <GeneralSettings /> },
         { path: "settings/users", element: <UserManagement /> },
+
+        // Employees
+        { path: "employees", element: <EmployeesListPage /> },
+        { path: "employees/new", element: <AddEmployeePage /> },
+        { path: "employees/:id", element: <EmployeeProfilePage /> },
+        { path: "employees/:id/edit", element: <EditEmployeePage /> },
       ],
     },
 

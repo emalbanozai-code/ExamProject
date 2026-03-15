@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import {
   LayoutDashboard,
+  Users,
   Settings,
   LogOut,
   Dumbbell,
@@ -26,6 +27,11 @@ export default function Sidebar() {
       path: "/",
       label: "Dashboard",
       icon: LayoutDashboard,
+    },
+    {
+      path: "/employees",
+      label: "Employees",
+      icon: Users,
     },
     {
       path: "/settings",
