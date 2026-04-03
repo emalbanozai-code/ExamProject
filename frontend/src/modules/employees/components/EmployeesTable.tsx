@@ -1,7 +1,7 @@
 import { Eye, Pencil, Trash2 } from "lucide-react";
 import DataTable from "@/components/ui/DataTable";
 import type { Column } from "@/components/ui/DataTable";
-import { Button, Badge } from "@/components/ui";
+import { Button, Badge, Avatar } from "@/components/ui";
 import type { EmployeeListItem } from "../types/employee";
 
 interface EmployeesTableProps {
@@ -40,11 +40,24 @@ export default function EmployeesTable({
 }: EmployeesTableProps) {
   const columns: Column<EmployeeListItem>[] = [
     {
-      key: "first_name",
-      header: "Name",
-      label: "Name",
-      sortable: true,
-      render: (row) => `${row.first_name} ${row.last_name}`,
+      key: "employee",
+      header: "Employee",
+      label: "Employee",
+      render: (row) => (
+        <div className="flex items-center gap-3">
+          <Avatar
+            src={row.profile_picture_url ?? undefined}
+            name={`${row.first_name} ${row.last_name}`}
+            size="sm"
+          />
+          <div className="min-w-0">
+            <p className="text-sm font-semibold text-text-primary truncate">
+              {row.first_name} {row.last_name}
+            </p>
+            <p className="text-xs text-text-secondary truncate">{row.email}</p>
+          </div>
+        </div>
+      ),
     },
     {
       key: "role",
@@ -52,6 +65,13 @@ export default function EmployeesTable({
       label: "Role",
       sortable: true,
       render: (row) => row.role,
+    },
+    {
+      key: "gender",
+      header: "Gender",
+      label: "Gender",
+      sortable: true,
+      render: (row) => row.gender,
     },
     {
       key: "email",

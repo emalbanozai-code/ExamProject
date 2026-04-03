@@ -10,7 +10,13 @@ import {
   type EmployeeCreateSchemaInput,
   type EmployeeUpdateSchemaInput,
 } from "../schemas/employeeSchemas";
-import type { EmployeeFormValues, EmployeeRole, EmployeeStatus, WorkDay } from "../types/employee";
+import type {
+  EmployeeFormValues,
+  EmployeeGender,
+  EmployeeRole,
+  EmployeeStatus,
+  WorkDay,
+} from "../types/employee";
 
 const WORK_DAY_OPTIONS: { value: WorkDay; label: string }[] = [
   { value: "mon", label: "Mon" },
@@ -33,8 +39,10 @@ interface EmployeeFormProps {
 const defaultValues: EmployeeFormValues = {
   first_name: "",
   last_name: "",
+  profile_picture: null,
   father_name: "",
   date_of_birth: null,
+  gender: "male",
   address: "",
   phone_number: "",
   email: "",
@@ -83,6 +91,8 @@ export default function EmployeeForm({
   }, [initialValues, reset]);
 
   const workDays = watch("work_days") as WorkDay[] | undefined;
+  const selectedProfilePicture = watch("profile_picture") as FileList | null | undefined;
+  const existingProfilePictureUrl = initialValues?.profile_picture_url;
 
   const toggleWorkDay = (day: WorkDay) => {
     const next = new Set(workDays ?? []);
@@ -114,6 +124,27 @@ export default function EmployeeForm({
             error={errors.last_name?.message}
             {...register("last_name")}
           />
+          <div className="md:col-span-2">
+            <label className="mb-1.5 block text-sm font-medium text-text-primary">
+              Profile Picture
+            </label>
+            <input
+              type="file"
+              accept="image/*"
+              {...register("profile_picture")}
+              className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-text-primary file:mr-3 file:rounded-md file:border-0 file:bg-primary/10 file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-primary"
+            />
+            {selectedProfilePicture && selectedProfilePicture.length > 0 && (
+              <p className="mt-1 text-xs text-text-secondary">
+                Selected: {selectedProfilePicture[0]?.name}
+              </p>
+            )}
+            {!selectedProfilePicture?.length && existingProfilePictureUrl && (
+              <p className="mt-1 text-xs text-text-secondary">
+                Current picture is set.
+              </p>
+            )}
+          </div>
           <Input
             label="Father Name"
             error={errors.father_name?.message}
@@ -125,6 +156,24 @@ export default function EmployeeForm({
             error={errors.date_of_birth?.message}
             {...register("date_of_birth")}
           />
+          <div>
+            <label className="mb-1.5 block text-sm font-medium text-text-primary">
+              Gender
+            </label>
+            <select
+              className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-text-primary focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+              {...register("gender")}
+            >
+              {(["male", "female", "other"] as EmployeeGender[]).map((gender) => (
+                <option key={gender} value={gender}>
+                  {gender}
+                </option>
+              ))}
+            </select>
+            {errors.gender && (
+              <p className="mt-1.5 text-sm text-error">{errors.gender.message}</p>
+            )}
+          </div>
           <Input
             label="Address"
             error={errors.address?.message}

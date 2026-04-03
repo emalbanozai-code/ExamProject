@@ -11,6 +11,12 @@ class Employee(BaseModel):
         ("staff", "Staff"),
     ]
 
+    GENDER_CHOICES = [
+        ("male", "Male"),
+        ("female", "Female"),
+        ("other", "Other"),
+    ]
+
     STATUS_CHOICES = [
         ("active", "Active"),
         ("inactive", "Inactive"),
@@ -21,8 +27,14 @@ class Employee(BaseModel):
         on_delete=models.CASCADE,
         related_name="employee_profile",
     )
+    profile_picture = models.ImageField(
+        upload_to="employees/profile_pictures/",
+        blank=True,
+        null=True,
+    )
     father_name = models.CharField(max_length=150, blank=True)
     date_of_birth = models.DateField(null=True, blank=True)
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
     address = models.TextField(blank=True)
     phone_number = models.CharField(max_length=20, blank=True)
     role = models.CharField(max_length=20, choices=ROLE_CHOICES)

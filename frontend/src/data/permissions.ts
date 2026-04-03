@@ -5,6 +5,9 @@ export const permissions = [
   { name: "settings", value: "Settings" },
   { name: "users", value: "Users" },
   { name: "employees", value: "Employees" },
+  { name: "students", value: "Students" },
+  { name: "subjects", value: "Subjects" },
+  { name: "questions", value: "Questions" },
 ] as const;
 
 export type Permission = (typeof permissions)[number]["name"];
@@ -18,6 +21,18 @@ export const routePermissions: Record<string, Permission | Permission[]> = {
   "/employees/new": "employees",
   "/employees/:id": "employees",
   "/employees/:id/edit": "employees",
+  "/students": "students",
+  "/students/new": "students",
+  "/students/:id": "students",
+  "/students/:id/edit": "students",
+  "/subjects": "subjects",
+  "/subjects/new": "subjects",
+  "/subjects/:id": "subjects",
+  "/subjects/:id/edit": "subjects",
+  "/questions": "questions",
+  "/questions/new": "questions",
+  "/questions/:id": "questions",
+  "/questions/:id/edit": "questions",
 };
 
 export const hasRoutePermission = (

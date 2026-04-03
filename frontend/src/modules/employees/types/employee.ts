@@ -1,13 +1,17 @@
 export type EmployeeRole = "admin" | "instructor" | "staff";
 export type EmployeeStatus = "active" | "inactive";
+export type EmployeeGender = "male" | "female" | "other";
 export type WorkDay = "mon" | "tue" | "wed" | "thu" | "fri" | "sat" | "sun";
 
 export interface Employee {
   id: number;
   first_name: string;
   last_name: string;
+  profile_picture?: string | null;
+  profile_picture_url?: string | null;
   father_name?: string;
   date_of_birth?: string | null;
+  gender: EmployeeGender;
   address?: string;
   phone_number?: string;
   email: string;
@@ -44,8 +48,11 @@ export interface EmployeeListParams {
 export interface EmployeeFormValues {
   first_name: string;
   last_name: string;
+  profile_picture?: FileList | null;
+  profile_picture_url?: string | null;
   father_name?: string;
   date_of_birth?: string | null;
+  gender: EmployeeGender;
   address?: string;
   phone_number?: string;
   email: string;

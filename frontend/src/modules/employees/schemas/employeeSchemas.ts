@@ -5,8 +5,10 @@ const workDayEnum = z.enum(["mon", "tue", "wed", "thu", "fri", "sat", "sun"]);
 export const employeeBaseSchema = z.object({
   first_name: z.string().min(2, "First name is required"),
   last_name: z.string().min(2, "Last name is required"),
+  profile_picture: z.any().optional(),
   father_name: z.string().optional(),
   date_of_birth: z.string().optional().nullable(),
+  gender: z.enum(["male", "female", "other"]),
   address: z.string().optional(),
   phone_number: z.string().optional(),
   email: z.string().email("Valid email is required"),

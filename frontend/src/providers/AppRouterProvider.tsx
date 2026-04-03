@@ -16,6 +16,24 @@ import {
   EmployeeProfilePage,
   EmployeesListPage,
 } from "@/modules/employees";
+import {
+  AddStudentPage,
+  EditStudentPage,
+  StudentProfilePage,
+  StudentsListPage,
+} from "@/modules/students";
+import {
+  AddSubjectPage,
+  EditSubjectPage,
+  SubjectProfilePage,
+  SubjectsListPage,
+} from "@/modules/subjects";
+import {
+  AddQuestionPage,
+  EditQuestionPage,
+  QuestionProfilePage,
+  QuestionsListPage,
+} from "@/modules/questions";
 
 function AppRouterProvider() {
   const router = createBrowserRouter([
@@ -41,6 +59,24 @@ function AppRouterProvider() {
         { path: "employees/new", element: <AddEmployeePage /> },
         { path: "employees/:id", element: <EmployeeProfilePage /> },
         { path: "employees/:id/edit", element: <EditEmployeePage /> },
+
+        // Students
+        { path: "students", element: <StudentsListPage /> },
+        { path: "students/new", element: <AddStudentPage /> },
+        { path: "students/:id", element: <StudentProfilePage /> },
+        { path: "students/:id/edit", element: <EditStudentPage /> },
+
+        // Subjects
+        { path: "subjects", element: <SubjectsListPage /> },
+        { path: "subjects/new", element: <AddSubjectPage /> },
+        { path: "subjects/:id", element: <SubjectProfilePage /> },
+        { path: "subjects/:id/edit", element: <EditSubjectPage /> },
+
+        // Questions
+        { path: "questions", element: <QuestionsListPage /> },
+        { path: "questions/new", element: <AddQuestionPage /> },
+        { path: "questions/:id", element: <QuestionProfilePage /> },
+        { path: "questions/:id/edit", element: <EditQuestionPage /> },
       ],
     },
 

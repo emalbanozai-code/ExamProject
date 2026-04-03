@@ -1,4 +1,5 @@
 from typing import Iterable
+import json
 
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
@@ -15,6 +16,7 @@ class EmployeeBaseSerializer(serializers.ModelSerializer):
     last_name = serializers.CharField(source="user.last_name")
     email = serializers.EmailField(source="user.email")
     username = serializers.CharField(source="user.username")
+    profile_picture_url = serializers.SerializerMethodField()
 
     class Meta:
         model = Employee
@@ -22,8 +24,11 @@ class EmployeeBaseSerializer(serializers.ModelSerializer):
             "id",
             "first_name",
             "last_name",
+            "profile_picture",
+            "profile_picture_url",
             "father_name",
             "date_of_birth",
+            "gender",
             "address",
             "phone_number",
             "email",
@@ -38,9 +43,37 @@ class EmployeeBaseSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ["id", "created_at", "updated_at"]
 
+    def get_profile_picture_url(self, obj):
+        if not obj.profile_picture:
+            return None
+        request = self.context.get("request")
+        if request:
+            return request.build_absolute_uri(obj.profile_picture.url)
+        return obj.profile_picture.url
+
 
 class EmployeeListSerializer(EmployeeBaseSerializer):
-    pass
+    class Meta(EmployeeBaseSerializer.Meta):
+        fields = [
+            "id",
+            "first_name",
+            "last_name",
+            "profile_picture_url",
+            "father_name",
+            "date_of_birth",
+            "gender",
+            "address",
+            "phone_number",
+            "email",
+            "role",
+            "salary",
+            "work_days",
+            "join_date",
+            "status",
+            "username",
+            "created_at",
+            "updated_at",
+        ]
 
 
 class EmployeeDetailSerializer(EmployeeBaseSerializer):
@@ -75,7 +108,17 @@ class EmployeeCreateUpdateSerializer(EmployeeBaseSerializer):
         if value in (None, ""):
             return []
         if isinstance(value, str):
-            items = [v.strip().lower() for v in value.split(",") if v.strip()]
+            text = value.strip()
+            if text.startswith("["):
+                try:
+                    parsed = json.loads(text)
+                except json.JSONDecodeError as exc:
+                    raise serializers.ValidationError("Invalid work days format.") from exc
+                if not isinstance(parsed, list):
+                    raise serializers.ValidationError("Invalid work days format.")
+                items = [str(v).strip().lower() for v in parsed if str(v).strip()]
+            else:
+                items = [v.strip().lower() for v in value.split(",") if v.strip()]
         elif isinstance(value, Iterable):
             items = [str(v).strip().lower() for v in value]
         else:

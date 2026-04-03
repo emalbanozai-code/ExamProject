@@ -50,3 +50,56 @@ this module should has these attributes:
 
 all functionalities of Employees/Management. 
 ask me anything you want 
+
+
+
+
+
+
+// Question module
+This is Online Exam system,i want to create a new module called "Question" with Django DRF + react ts 
++ tailwind v4, i want to you create this module in backend and frontend 
+in frontend each module should have services (api calls),hooks, stores, schemas, components, queries, pages and types folders.
+this module should has these attributes:  
+
+• Subject (Foreign Key) 
+• Question Text 
+• Option A  
+• Option B 
+• Option C 
+• Option D 
+• Correct Answer  
+• Marks 
+• Difficulty Level (Easy / Medium / Hard) 
+• Created By (Employee) 
+• Created At  
+• Updated At 
+
+
+all functionalities of Question. 
+ask me anything you want 
+
+
+//-------------------------
+
+
+// Exam module
+This is Online Exam system,i want to create a new module called "Exam" with Django DRF + react ts 
++ tailwind v4, i want to you create this module in backend and frontend 
+in frontend each module should have services (api calls),hooks, stores, schemas, components, queries, pages and types folders.
+this module should has these attributes:  
+
+• Exam Title  
+• Subject (Foreign Key)  
+• Total Questions  
+• Total Marks  
+• Exam Date  
+• Start Time  
+• End Time 
+• Duration (Minutes) 
+• Status (Active / Closed)  
+• Created By (Employee)  
+• Created At 
+
+all functionalities of Exam. 
+ask me anything you want 

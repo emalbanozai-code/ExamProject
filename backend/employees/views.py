@@ -1,6 +1,7 @@
 from django.db.models import Q
 from rest_framework import viewsets, filters, status
 from rest_framework.decorators import action
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
@@ -18,6 +19,7 @@ class EmployeeViewSet(PermissionMixin, viewsets.ModelViewSet):
     queryset = Employee.objects.select_related("user").all()
     permission_classes = [IsAuthenticated]
     permission_module = "employees"
+    parser_classes = [MultiPartParser, FormParser, JSONParser]
 
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ["status", "role"]

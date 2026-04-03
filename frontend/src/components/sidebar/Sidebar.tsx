@@ -6,6 +6,7 @@ import {
   LogOut,
   Dumbbell,
   School,
+  HelpCircle,
 } from "lucide-react";
 import SidebarItem from "./SidebarItem";
 import SidebarToggle from "./SidebarToggle";
@@ -32,6 +33,21 @@ export default function Sidebar() {
       path: "/employees",
       label: "Employees",
       icon: Users,
+    },
+    {
+      path: "/students",
+      label: "Students",
+      icon: Users,
+    },
+    {
+      path: "/subjects",
+      label: "Subjects",
+      icon: Users,
+    },
+    {
+      path: "/questions",
+      label: "Questions",
+      icon: HelpCircle,
     },
     {
       path: "/settings",

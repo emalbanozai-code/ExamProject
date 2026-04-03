@@ -89,6 +89,9 @@ class Permission(models.Model):
         ('settings', 'Settings'),
         ('users', 'Users'),
         ('employees', 'Employees'),
+        ('students', 'Students'),
+        ('subjects', 'Subjects'),
+        ('questions', 'Questions'),
     ]
 
     action = models.CharField(max_length=100)

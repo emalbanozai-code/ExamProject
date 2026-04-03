@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { PageHeader } from "@/components";
-import { Button, Card, CardContent, Badge } from "@/components/ui";
+import { Button, Card, CardContent, Badge, Avatar } from "@/components/ui";
 import { useActivateEmployee, useDeactivateEmployee, useDeleteEmployee, useEmployee } from "../queries/useEmployees";
 
 export default function EmployeeProfilePage() {
@@ -61,6 +61,19 @@ export default function EmployeeProfilePage() {
 
       <Card>
         <CardContent className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="md:col-span-2 flex items-center gap-4">
+            <Avatar
+              src={employee.profile_picture_url ?? undefined}
+              name={`${employee.first_name} ${employee.last_name}`}
+              size="xl"
+            />
+            <div>
+              <p className="text-xs text-text-secondary">Employee</p>
+              <p className="text-sm text-text-primary">
+                {employee.first_name} {employee.last_name}
+              </p>
+            </div>
+          </div>
           <div>
             <p className="text-xs text-text-secondary">Status</p>
             <div className="mt-1">{statusBadge}</div>
@@ -84,6 +97,10 @@ export default function EmployeeProfilePage() {
           <div>
             <p className="text-xs text-text-secondary">Date of Birth</p>
             <p className="text-sm text-text-primary mt-1">{employee.date_of_birth || "-"}</p>
+          </div>
+          <div>
+            <p className="text-xs text-text-secondary">Gender</p>
+            <p className="text-sm text-text-primary mt-1">{employee.gender}</p>
           </div>
           <div>
             <p className="text-xs text-text-secondary">Address</p>
